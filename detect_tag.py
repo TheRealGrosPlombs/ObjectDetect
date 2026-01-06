@@ -1,13 +1,19 @@
 import cv2
 import numpy as np
-import os
+import os, sys
 import pickle
 from pupil_apriltags import Detector
 import streamer
 
-# Live undistortion parameters
-#CAMERA_ID = 0  # Camera ID (usually 0 for built-in webcam)
-URL = "rtsp://thingino:thingino@192.168.0.176:554/ch0"
+# Grab argv paramter wth one line
+param = ' '.join(os.sys.argv[1:])
+if param:
+    URL = param 
+else:
+    # Live undistortion parameters
+    #CAMERA_ID = 0  # Camera ID (usually 0 for built-in webcam)
+    URL = "rtsp://thingino:thingino@192.168.0.176:554/ch0"
+    
 CAMERA_ID = URL
 CALIBRATION_FILE = 'output/calibration_data.pkl'  # Path to calibration data
 
